@@ -14,5 +14,6 @@ public class WhiteDecorater extends PhoneDecorator {
     }
 
     private void setPhoneColourWhite(Phone decoratedPhone) {
+        decoratedPhone
     }
 }

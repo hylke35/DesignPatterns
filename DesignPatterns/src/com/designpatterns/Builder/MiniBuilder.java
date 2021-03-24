@@ -13,8 +13,8 @@ public class MiniBuilder implements Builder {
     }
 
     @Override
-    public void addFrame() {
-        this.phoneMini.addPart();
+    public boolean addFrame() {
+
     }
 
     @Override

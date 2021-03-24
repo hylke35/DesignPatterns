@@ -1,6 +1,8 @@
 package com.designpatterns;
 
-public interface Phone  {
-    PhoneColour COLOUR;
+import com.designpatterns.Enums.Colour;
+
+public abstract class Phone  {
+    Colour colour;
     void decorate();
 }

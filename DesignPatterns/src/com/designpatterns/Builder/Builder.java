@@ -2,7 +2,7 @@ package com.designpatterns.Builder;
 
 public interface Builder {
     void reset();
-    void addFrame();
+    boolean addFrame();
     void addLogicboard();
     void addCam();
     void addCamTwo();
