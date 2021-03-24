@@ -1,4 +1,4 @@
-package com.designpatterns;
+package com.designpatterns.Builder;
 
 public interface Builder {
     void reset();

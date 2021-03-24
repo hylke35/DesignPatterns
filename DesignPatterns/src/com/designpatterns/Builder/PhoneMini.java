@@ -1,10 +1,11 @@
-package com.designpatterns;
+package com.designpatterns.Builder;
 
 import com.designpatterns.Enums.PhoneName;
+import com.designpatterns.Phone;
 
 import java.util.ArrayList;
 
-public class PhoneMini implements Phone{
+public class PhoneMini implements Phone {
     public ArrayList<object> partsList;
 
     public PhoneMini() {
