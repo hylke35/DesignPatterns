@@ -1,5 +1,6 @@
 package com.designpatterns.Decorater;
 
+import com.designpatterns.Enums.Colour;
 import com.designpatterns.Phone;
 
 public class WhiteDecorater extends PhoneDecorator {
@@ -14,6 +15,8 @@ public class WhiteDecorater extends PhoneDecorator {
     }
 
     private void setPhoneColourWhite(Phone decoratedPhone) {
-        decoratedPhone
+        decoratedPhone.setColour(Colour.White);
     }
+
+
 }

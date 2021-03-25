@@ -14,25 +14,34 @@ public class MiniBuilder implements Builder {
 
     @Override
     public boolean addFrame() {
-
+        return false;
     }
 
     @Override
-    public void addLogicboard() {
-        this.phoneMini.addPart();
+    public boolean addLogicboard() {
+        return false;
     }
 
     @Override
-    public void addBattery() {
-        this.phoneMini.addPart();
-
+    public boolean addCam() {
+        return false;
     }
 
     @Override
-    public void addScreen() {
-        this.phoneMini.addPart();
-
+    public boolean addCamTwo() {
+        return false;
     }
+
+    @Override
+    public boolean addBattery() {
+        return false;
+    }
+
+    @Override
+    public boolean addScreen() {
+        return false;
+    }
+
 
     public PhoneMini build() {
         return this.phoneMini;

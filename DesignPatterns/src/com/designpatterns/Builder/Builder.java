@@ -3,9 +3,9 @@ package com.designpatterns.Builder;
 public interface Builder {
     void reset();
     boolean addFrame();
-    void addLogicboard();
-    void addCam();
-    void addCamTwo();
-    void addBattery();
-    void addScreen();
+    boolean addLogicboard();
+    boolean addCam();
+    boolean addCamTwo();
+    boolean addBattery();
+    boolean addScreen();
 }
