@@ -1,13 +1,26 @@
+import com.designpatterns.Phone.Phone;
 
-import java.util.*;
+public abstract class Employee {
 
+public com.designpatterns.Phone.Phone phone;
 
-public abstract Employee {
+    public Employee(Phone phone) {
+        this.phone = phone;
+    }
 
-    public Phone phone;
+    public Phone getPhone() {
+        return phone;
+    }
 
-    public do(phone){ }
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
 
-    public sendBack(phone){}
+    public do(Phone){
+        phone = this.phone;
+    }
 
+    public sendBack(){
+
+    }
 }
