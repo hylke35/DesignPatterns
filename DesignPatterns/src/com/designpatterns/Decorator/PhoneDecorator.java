@@ -1,9 +1,13 @@
 package com.designpatterns.Decorator;
 
-import com.designpatterns.Phone;
+import com.designpatterns.Phone.Phone;
 
 public abstract class PhoneDecorator implements Decorater {
-    protected Phone decoratedPhone;
+    public Phone decoratedPhone;
+
+    public Phone getDecoratedPhone() {
+        return decoratedPhone;
+    }
 
     public PhoneDecorator(Phone decoratedPhone) {
         this.decoratedPhone = decoratedPhone;
@@ -13,4 +17,6 @@ public abstract class PhoneDecorator implements Decorater {
     public void decorate() {
         decoratedPhone.decorate();
     }
+
+
 }

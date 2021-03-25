@@ -1,7 +1,7 @@
 package com.designpatterns.Decorator;
 
 import com.designpatterns.Enum.Colour;
-import com.designpatterns.Phone;
+import com.designpatterns.Phone.Phone;
 
 public class WhiteDecorater extends PhoneDecorator {
     public WhiteDecorater(Phone decoratedPhone) {
@@ -10,8 +10,7 @@ public class WhiteDecorater extends PhoneDecorator {
 
     @Override
     public void decorate() {
-        decoratedPhone.decorate();
-        setPhoneColourWhite(decoratedPhone);
+        decoratedPhone.setColour(Colour.White);
     }
 
     private void setPhoneColourWhite(Phone decoratedPhone) {

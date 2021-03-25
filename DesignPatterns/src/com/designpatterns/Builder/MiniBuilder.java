@@ -1,6 +1,7 @@
 package com.designpatterns.Builder;
 
-import com.designpatterns.PhoneMini;
+import com.designpatterns.Enum.Status;
+import com.designpatterns.Phone.PhoneMini;
 
 public class MiniBuilder implements Builder {
     private PhoneMini phoneMini;
@@ -53,9 +54,8 @@ public class MiniBuilder implements Builder {
         addCam();
         addBattery();
         addScreen();
+        phoneMini.setResult();
+        phoneMini.setStatus(Status.Assemble);
     }
 
-    public String getResults() {
-        return phoneMini.getResult();
-    }
 }

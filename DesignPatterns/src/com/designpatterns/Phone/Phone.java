@@ -1,10 +1,11 @@
-package com.designpatterns;
+package com.designpatterns.Phone;
 
 import com.designpatterns.Enum.Colour;
 import com.designpatterns.Enum.Status;
 
-public class Phone {
+public abstract class Phone {
     private Colour colour;
+    protected String model;
     private String frame;
     private String logicboard;
     private String battery;
@@ -12,6 +13,10 @@ public class Phone {
     private String screen;
     private String result;
     private Status status;
+
+    public Phone(String model) {
+        this.model = model;
+    }
 
     public void decorate() {
     }
@@ -22,6 +27,14 @@ public class Phone {
 
     public void setColour(Colour colour) {
         this.colour = colour;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public String getFrame() {
@@ -69,8 +82,14 @@ public class Phone {
     }
 
     public void setResult() {
-        result = "Frame: " + getFrame() + "\n"+
-                 "Logicboard: " + getLogicboard();
+        result = "Model: " + getModel() +"\n"+
+                 "Frame: " + getFrame() +"\n"+
+                 "Logicboard: " + getLogicboard() +"\n"+
+                 "Battery: " + getBattery() +"\n"+
+                 "Camera: " + getCam() +"\n"+
+                 "Screen: " + getScreen() +"\n"+
+                 "Colour: " + getColour();
+
     }
 
     public Status getStatus() {
