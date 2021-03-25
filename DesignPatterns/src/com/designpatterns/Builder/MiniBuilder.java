@@ -1,5 +1,7 @@
 package com.designpatterns.Builder;
 
+import com.designpatterns.PhoneMini;
+
 public class MiniBuilder implements Builder {
     private PhoneMini phoneMini;
 

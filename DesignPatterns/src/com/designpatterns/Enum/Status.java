@@ -1,4 +1,4 @@
-package com.designpatterns.Enums;
+package com.designpatterns.Enum;
 
 public enum Status {
     Assemble,

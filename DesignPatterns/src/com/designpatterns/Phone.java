@@ -1,7 +1,7 @@
 package com.designpatterns;
 
-import com.designpatterns.Enums.Colour;
-import com.designpatterns.Enums.Status;
+import com.designpatterns.Enum.Colour;
+import com.designpatterns.Enum.Status;
 
 public class Phone {
     private Colour colour;

@@ -1,6 +1,6 @@
-package com.designpatterns.Decorater;
+package com.designpatterns.Decorator;
 
-import com.designpatterns.Enums.Colour;
+import com.designpatterns.Enum.Colour;
 import com.designpatterns.Phone;
 
 public class WhiteDecorater extends PhoneDecorator {

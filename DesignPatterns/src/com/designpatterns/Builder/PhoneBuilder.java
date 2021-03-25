@@ -1,8 +1,8 @@
 package com.designpatterns.Builder;
 
-import com.designpatterns.Enums.PhoneName;
-import com.designpatterns.Enums.Status;
 import com.designpatterns.Phone;
+import com.designpatterns.Enum.PhoneName;
+import com.designpatterns.Enum.Status;
 
 public class PhoneBuilder {
     protected Phone phone;
@@ -28,5 +28,13 @@ public class PhoneBuilder {
 
     public void setPhone(Phone phone) {
         this.phone = phone;
+    }
+
+    public MiniBuilder getMiniBuilder() {
+        return miniBuilder;
+    }
+
+    public void setMiniBuilder(MiniBuilder miniBuilder) {
+        this.miniBuilder = miniBuilder;
     }
 }

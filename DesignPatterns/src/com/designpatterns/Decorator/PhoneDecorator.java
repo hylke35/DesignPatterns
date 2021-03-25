@@ -1,4 +1,4 @@
-package com.designpatterns.Decorater;
+package com.designpatterns.Decorator;
 
 import com.designpatterns.Phone;
 

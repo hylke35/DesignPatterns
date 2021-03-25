@@ -1,7 +1,4 @@
-package com.designpatterns.Builder;
-
-import com.designpatterns.Enums.Status;
-import com.designpatterns.Phone;
+package com.designpatterns;
 
 public class PhoneMini extends Phone {
     private String model;
