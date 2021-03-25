@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
         PhoneBuilder test = new PhoneBuilder();
         test.buildPhone(PhoneName.PhoneMINI);
-        test.getMiniBuilder().addFrame();
-        System.out.println(test.getPhone().getFrame());
+        System.out.println(test.getPhone().getResult());
     }
 }

@@ -68,8 +68,9 @@ public class Phone {
         return result;
     }
 
-    public void setResult(String result) {
-        this.result = result;
+    public void setResult() {
+        result = "Frame: " + getFrame() + "\n"+
+                 "Logicboard: " + getLogicboard();
     }
 
     public Status getStatus() {

@@ -5,12 +5,14 @@ import com.designpatterns.Enum.PhoneName;
 import com.designpatterns.Enum.Status;
 
 public class PhoneBuilder {
-    protected Phone phone;
-    protected MiniBuilder miniBuilder;
+    public Phone phone;
+    public MiniBuilder miniBuilder = new MiniBuilder();
+
 
     public Phone buildPhone(PhoneName name){
         if (name == PhoneName.PhoneMINI) {
             phone = miniBuilder.getPhoneMini();
+            miniBuilder.build();
             phone.setStatus(Status.Assemble);
         } else if (name == PhoneName.PhonePro ) {
             //phone = ;

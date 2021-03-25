@@ -9,7 +9,6 @@ public class MiniBuilder implements Builder {
         reset();
     }
 
-
     public PhoneMini getPhoneMini() {
         return phoneMini;
     }
@@ -24,32 +23,39 @@ public class MiniBuilder implements Builder {
     }
 
     @Override
-    public String addFrame() {
-        return "Mini Frame";
+    public void addFrame() {
+        phoneMini.setFrame("Mini Frame");
     }
 
     @Override
-    public String addLogicboard() {
-        return "AX10";
+    public void addLogicboard() {
+        phoneMini.setLogicboard("AX10");
     }
 
     @Override
-    public String addCam() {
-        return "10MP";
+    public void addCam() {
+        phoneMini.setCam("10MP");
     }
 
     @Override
-    public String addCamTwo() {
-        return null;
+    public void addBattery() {
+        phoneMini.setBattery("3600mAH");
     }
 
     @Override
-    public String addBattery() {
-        return "3600mAH";
+    public void addScreen() {
+        phoneMini.setScreen("5 inch");
     }
 
-    @Override
-    public String addScreen() {
-        return "5 inch";
+    public void build() {
+        addFrame();
+        addLogicboard();
+        addCam();
+        addBattery();
+        addScreen();
+    }
+
+    public String getResults() {
+        return phoneMini.getResult();
     }
 }
