@@ -6,7 +6,6 @@ public abstract class Phone  {
     Colour colour;
 
     public void decorate() {
-
     }
 
     public Colour getColour() {
