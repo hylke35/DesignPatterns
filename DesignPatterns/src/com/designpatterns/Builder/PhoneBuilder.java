@@ -13,6 +13,7 @@ public class PhoneBuilder {
         if (name == PhoneName.PhoneMINI) {
             phone = miniBuilder.getPhoneMini();
             miniBuilder.build();
+            phone.setResult();
             phone.setStatus(Status.Assemble);
         } else if (name == PhoneName.PhonePro ) {
             //phone = ;
