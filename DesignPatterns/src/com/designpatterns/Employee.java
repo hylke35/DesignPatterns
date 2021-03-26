@@ -1,3 +1,5 @@
+package com.designpatterns;
+
 import com.designpatterns.Phone.Phone;
 
 public abstract class Employee {
@@ -16,11 +18,12 @@ public com.designpatterns.Phone.Phone phone;
         this.phone = phone;
     }
 
-    public do(Phone){
+    public void doSomething(Phone phone){
         phone = this.phone;
     }
 
-    public sendBack(){
+    public void sendBack(){
 
     }
 }
+
