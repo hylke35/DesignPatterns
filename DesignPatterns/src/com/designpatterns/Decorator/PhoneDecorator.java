@@ -2,7 +2,7 @@ package com.designpatterns.Decorator;
 
 import com.designpatterns.Phone.Phone;
 
-public abstract class PhoneDecorator implements Decorater {
+public abstract class PhoneDecorator implements Decorator {
     public Phone decoratedPhone;
 
     public Phone getDecoratedPhone() {

@@ -18,9 +18,6 @@ public abstract class Phone {
         this.model = model;
     }
 
-    public void decorate() {
-    }
-
     public Colour getColour() {
         return colour;
     }
@@ -89,7 +86,6 @@ public abstract class Phone {
                  "Camera: " + getCam() +"\n"+
                  "Screen: " + getScreen() +"\n"+
                  "Colour: " + getColour();
-
     }
 
     public Status getStatus() {
@@ -98,5 +94,9 @@ public abstract class Phone {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public void decorate() {
+        
     }
 }
