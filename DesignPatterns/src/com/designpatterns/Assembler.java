@@ -1,3 +1,5 @@
+package com.designpatterns;
+
 import com.designpatterns.Phone.Phone;
 
 import java.util.ArrayList;
@@ -9,13 +11,13 @@ public class Assembler extends Employee {
 
     public ArrayList<Phone> shipList = null;
 
-    @Override
-    public do(Phone){
+    //@Override
+    public void doSomething(Phone phone){
         phone = this.phone;
     }
 
-    @Override
-    public sendBack(Phone){
+    //@Override
+    public void sendBack(Phone phone){
 
     }
 }
