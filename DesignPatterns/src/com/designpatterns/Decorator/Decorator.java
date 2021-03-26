@@ -1,5 +1,5 @@
 package com.designpatterns.Decorator;
 
-public interface Decorater {
+public interface Decorator {
     void decorate();
 }

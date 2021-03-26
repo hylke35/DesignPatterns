@@ -19,9 +19,6 @@ public abstract class Phone {
         this.model = model;
     }
 
-    public void decorate() {
-    }
-
     public Colour getColour() {
         return colour;
     }
@@ -90,7 +87,6 @@ public abstract class Phone {
                  "Camera: " + getCam() +"\n"+
                  "Screen: " + getScreen() +"\n"+
                  "Colour: " + getColour();
-
     }
 
     public Status getStatus() {
@@ -101,8 +97,7 @@ public abstract class Phone {
         this.status = status;
     }
 
-    public boolean equals(Phone phone){
-        Phone other = (Phone) phone;
-        return this.model.equals(other.model);
+    public void decorate() {
+        
     }
 }
