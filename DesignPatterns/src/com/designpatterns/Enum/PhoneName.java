@@ -1,7 +1,7 @@
 package com.designpatterns.Enum;
 
 public enum PhoneName {
-    PhoneMINI,
+    PhoneMini,
     PhonePro,
     PhoneUltra
 }

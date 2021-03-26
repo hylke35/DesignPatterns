@@ -30,7 +30,7 @@ public class ProBuilder implements Builder {
 
     @Override
     public void addLogicboard() {
-        phonePro.setLogicboard("AX11");
+        phonePro.setLogicboard("AX10+");
     }
 
     @Override

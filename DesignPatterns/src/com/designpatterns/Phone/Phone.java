@@ -1,11 +1,12 @@
 package com.designpatterns.Phone;
 
 import com.designpatterns.Enum.Colour;
+import com.designpatterns.Enum.PhoneName;
 import com.designpatterns.Enum.Status;
 
 public abstract class Phone {
     private Colour colour;
-    protected String model;
+    protected PhoneName model;
     private String frame;
     private String logicboard;
     private String battery;
@@ -14,7 +15,7 @@ public abstract class Phone {
     private String result;
     private Status status;
 
-    public Phone(String model) {
+    public Phone(PhoneName model) {
         this.model = model;
     }
 
@@ -29,11 +30,11 @@ public abstract class Phone {
         this.colour = colour;
     }
 
-    public String getModel() {
+    public PhoneName getModel() {
         return model;
     }
 
-    public void setModel(String model) {
+    public void setModel(PhoneName model) {
         this.model = model;
     }
 
@@ -98,5 +99,10 @@ public abstract class Phone {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public boolean equals(Phone phone){
+        Phone other = (Phone) phone;
+        return this.model.equals(other.model);
     }
 }

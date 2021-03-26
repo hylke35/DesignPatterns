@@ -31,7 +31,7 @@ public class UltraBuilder implements Builder {
 
     @Override
     public void addLogicboard() {
-        phoneUltra.setLogicboard("AX12");
+        phoneUltra.setLogicboard("AX12X");
     }
 
     @Override

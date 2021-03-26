@@ -1,14 +1,11 @@
-package com.designpatterns;
+package com.designpatterns.Employee;
 
 import com.designpatterns.Phone.Phone;
 
 import java.util.ArrayList;
 
 public class Packager extends Employee {
-    public Packager(Phone phone) {
-        super(phone);
-    }
-    public ArrayList<Phone> shipList = null;
+    private ArrayList<Phone> shipList = new ArrayList<>();
 
     //@Override
     public void doSomething(Phone phone){

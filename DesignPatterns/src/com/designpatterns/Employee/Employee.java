@@ -1,14 +1,10 @@
-package com.designpatterns;
+package com.designpatterns.Employee;
 
 import com.designpatterns.Phone.Phone;
 
 public abstract class Employee {
 
 public com.designpatterns.Phone.Phone phone;
-
-    public Employee(Phone phone) {
-        this.phone = phone;
-    }
 
     public Phone getPhone() {
         return phone;
@@ -23,6 +19,10 @@ public com.designpatterns.Phone.Phone phone;
     }
 
     public void sendBack(){
+
+    }
+
+    public void addToList(Phone phone){
 
     }
 }
