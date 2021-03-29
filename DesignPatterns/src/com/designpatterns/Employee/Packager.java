@@ -34,7 +34,7 @@ public class Packager extends Employee {
 public String Process(Phone phone){
         String process = null;
         if(phone.getStatus() == Status.Package ){
-            process = "the phone is Packaging";
+            process = "the phone is in packaging";
         }
         return process;
     }
