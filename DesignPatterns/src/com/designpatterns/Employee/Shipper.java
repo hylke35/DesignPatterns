@@ -1,5 +1,6 @@
 package com.designpatterns.Employee;
 
+import com.designpatterns.Enum.Status;
 import com.designpatterns.Phone.Phone;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class Shipper extends Employee{
 
     //@Override
     public void sendBack(Phone phone){
-
+        shipList.remove(phone);
     }
 
     public void addToList(Phone phone){
@@ -28,5 +29,13 @@ public class Shipper extends Employee{
 
     public void setShipList(ArrayList<Phone> shipList) {
         this.shipList = shipList;
+    }
+
+    public String Process(Phone phone){
+        String process = null;
+        if(phone.getStatus() == Status.Ship ){
+            process = "the phone has been shiped";
+        }
+        return process;
     }
 }

@@ -1,5 +1,6 @@
 package com.designpatterns.Employee;
 
+import com.designpatterns.Enum.Status;
 import com.designpatterns.Phone.Phone;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Assembler extends Employee {
     //@Override
     public void sendBack(Phone phone){
 
+        assembleList.remove(phone);
     }
 
     public ArrayList<Phone> getAssembleList() {
@@ -25,9 +27,18 @@ public class Assembler extends Employee {
         this.assembleList = assembleList;
     }
 
-
     @Override
     public void addToList(Phone phone){
         assembleList.add(phone);
     }
+
+    public String Process(Phone phone){
+        String process = null;
+        if(phone.getStatus() == Status.Assemble ){
+            process = "under testing";
+        }
+        return process;
+    }
+
+
 }
