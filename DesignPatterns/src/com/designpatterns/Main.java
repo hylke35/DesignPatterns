@@ -1,9 +1,9 @@
 package com.designpatterns;
 
 import com.designpatterns.Builder.PhoneBuilder;
-import com.designpatterns.Decorator.Decorater;
+import com.designpatterns.Decorator.Decorator;
 import com.designpatterns.Decorator.PhoneDecorator;
-import com.designpatterns.Decorator.WhiteDecorater;
+import com.designpatterns.Decorator.WhiteDecorator;
 import com.designpatterns.Employee.Assembler;
 import com.designpatterns.Employee.Shipper;
 import com.designpatterns.Enum.Colour;
@@ -20,11 +20,6 @@ public class Main {
         test.buildPhone(PhoneName.PhoneUltra, assembler);
         test.buildPhone(PhoneName.PhoneMini, assembler);
         test.buildPhone(PhoneName.PhoneMini, assembler);
-        //test.getPhone().setColour(Colour.White);
-        //System.out.println(test.getPhone().getColour());
-        //WhiteDecorater white = new WhiteDecorater(test.getPhone());
-        //System.out.println(white.getDecoratedPhone());
-        //white.decorate();
         System.out.println(test.getPhone().getResult());
         Store store = new Store();
         //store.addToStock(test.getPhone());

@@ -23,7 +23,7 @@ public abstract class Phone {
         return colour;
     }
 
-    public void setColour(Colour colour) {
+    public void decorate(Colour colour) {
         this.colour = colour;
     }
 
@@ -97,7 +97,4 @@ public abstract class Phone {
         this.status = status;
     }
 
-    public void decorate() {
-        
-    }
 }
