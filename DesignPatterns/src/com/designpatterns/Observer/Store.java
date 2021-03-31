@@ -2,6 +2,7 @@ package com.designpatterns.Observer;
 
 import com.designpatterns.Employee.Shipper;
 import com.designpatterns.Enum.PhoneName;
+import com.designpatterns.Enum.Status;
 import com.designpatterns.Phone.Phone;
 import com.designpatterns.Phone.PhoneMini;
 import com.designpatterns.Phone.PhonePro;
@@ -62,6 +63,7 @@ public class Store {
 
     public void addToStock(Phone phone){
         stock.add(phone);
+        phone.setStatus(Status.Shipped);
     }
 
     public void removeFromStock(Phone phone){
@@ -84,6 +86,7 @@ public class Store {
             if(phone.getModel() == phoneName){
                 unsubscribeCustomer(customer);
                 customer.setPhone(phone);
+                phone.setStatus(Status.Sold);
                 index = stock.indexOf(phone);
             }
         }

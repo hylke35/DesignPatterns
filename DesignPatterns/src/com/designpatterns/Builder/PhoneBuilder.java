@@ -1,6 +1,9 @@
 package com.designpatterns.Builder;
 
+import com.designpatterns.Decorator.BlackDecorator;
+import com.designpatterns.Decorator.WhiteDecorator;
 import com.designpatterns.Employee.Assembler;
+import com.designpatterns.Enum.Colour;
 import com.designpatterns.Phone.Phone;
 import com.designpatterns.Enum.PhoneName;
 import com.designpatterns.Enum.Status;
@@ -8,36 +11,58 @@ import com.designpatterns.Enum.Status;
 import java.util.ArrayList;
 
 public class PhoneBuilder {
-    public Phone phone;
-    public MiniBuilder miniBuilder;
-    public ProBuilder proBuilder;
-    public UltraBuilder ultraBuilder;
+    private Phone phone;
+    private MiniBuilder miniBuilder;
+    private ProBuilder proBuilder;
+    private UltraBuilder ultraBuilder;
+    private Assembler assembler;
+    private WhiteDecorator whiteDecorator;
+    private BlackDecorator blackDecorator;
 
-    public PhoneBuilder() {
+    public PhoneBuilder(Assembler assemblerName, BlackDecorator black, WhiteDecorator white) {
+        assembler = assemblerName;
         miniBuilder = new MiniBuilder();
         proBuilder = new ProBuilder();
         ultraBuilder = new UltraBuilder();
+        whiteDecorator = white;
+        blackDecorator = black;
     }
 
-    public Phone buildPhone(PhoneName name, Assembler assembler){
-        if (name == PhoneName.PhoneMini) {
+    public Phone buildPhone(PhoneName name, Colour colour){
+        if (name == PhoneName.PhoneMini && colour == Colour.White) {
             phone = miniBuilder.getPhoneMini();
             miniBuilder.build();
-            phone.setStatus(Status.Assemble);
             assembler.addToList(phone);
-
-        } else if (name == PhoneName.PhonePro ) {
+            whiteDecorator.addToWhiteDecoratorList(phone);
+        } else if (name == PhoneName.PhonePro && colour == Colour.White) {
             phone = proBuilder.getPhonePro();
             proBuilder.build();
-            phone.setStatus(Status.Assemble);
             assembler.addToList(phone);
-
-        } else if (name == PhoneName.PhoneUltra){
+            whiteDecorator.addToWhiteDecoratorList(phone);
+        } else if (name == PhoneName.PhoneUltra && colour == Colour.White){
             phone = ultraBuilder.getPhoneUltra();
             ultraBuilder.build();
-            phone.setStatus(Status.Assemble);
             assembler.addToList(phone);
+            whiteDecorator.addToWhiteDecoratorList(phone);
         }
+
+        else if (name == PhoneName.PhoneMini && colour == Colour.Black) {
+            phone = miniBuilder.getPhoneMini();
+            miniBuilder.build();
+            assembler.addToList(phone);
+            blackDecorator.addToBlackDecoratorList(phone);
+        } else if (name == PhoneName.PhonePro && colour == Colour.Black) {
+            phone = proBuilder.getPhonePro();
+            proBuilder.build();
+            assembler.addToList(phone);
+            blackDecorator.addToBlackDecoratorList(phone);
+        } else if (name == PhoneName.PhoneUltra && colour == Colour.Black){
+            phone = ultraBuilder.getPhoneUltra();
+            ultraBuilder.build();
+            assembler.addToList(phone);
+            blackDecorator.addToBlackDecoratorList(phone);
+        }
+
         return phone;
     };
 

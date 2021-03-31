@@ -1,40 +1,60 @@
 package com.designpatterns.Employee;
 
 import com.designpatterns.Enum.Status;
+import com.designpatterns.Observer.Store;
 import com.designpatterns.Phone.Phone;
+import com.designpatterns.State.ShipState;
 
 import java.util.ArrayList;
 
 public class Shipper extends Employee{
+    private ArrayList<Phone> shipList = new ArrayList<>();
+    private ShipState shipState = new ShipState();
+    private Packager packager;
+    private Store store;
 
-    public ArrayList<Phone> shipList = new ArrayList<>();
-
-    //@Override
-    public void doSomething(Phone phone){
-        phone = this.phone;
-    }
-
-    //@Override
-    public void sendBack(Phone phone){
-        shipList.remove(phone);
-    }
-
-    public void addToList(Phone phone){
-        shipList.add(phone);
+    public Shipper(Packager packager) {
+        this.packager = packager;
     }
 
     public ArrayList<Phone> getShipList() {
         return shipList;
     }
 
-    public void setShipList(ArrayList<Phone> shipList) {
-        this.shipList = shipList;
+    public void addToList(Phone phone){
+        shipList.add(phone);
+        shipState.setState(phone);
     }
 
+    public void addListToList(ArrayList<Phone> phoneList){
+        for(Phone phone : phoneList){
+            phone.setStatus(Status.Shipped);
+            addToList(phone);
+        }
+    }
+
+    public void moveForward(Store store){
+        store.addAllToStock(this);
+        shipList.clear();
+    }
+
+    public void sendBack(Phone phone){
+        shipList.remove(phone);
+        packager.addToList(phone);
+    }
+
+    @Override
     public String Process(Phone phone){
-        String process = null;
-        if(phone.getStatus() == Status.Ship ){
-            process = "the phone has been shiped";
+        if (phone.getStatus() == Status.Assemble) {
+            process = "The phone is currently being assembled";
+        } else if (phone.getStatus() == Status.Package){
+            process = "The phone is currently being packaged";
+        } else if (phone.getStatus() == Status.Ship){
+            process = "The phone is here";
+        } else if (phone.getStatus() == Status.Shipped){
+            process = "The phone is currently has been shipped";
+        } else if (phone.getStatus() == Status.Sold){
+            process = "The phone has been sold";
         }
         return process;
     }

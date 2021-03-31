@@ -1,10 +1,11 @@
 package com.designpatterns.Phone;
 
+import com.designpatterns.Decorator.Decorator;
 import com.designpatterns.Enum.Colour;
 import com.designpatterns.Enum.PhoneName;
 import com.designpatterns.Enum.Status;
 
-public abstract class Phone {
+public abstract class Phone implements Decorator {
     private Colour colour;
     protected PhoneName model;
     private String frame;
