@@ -19,29 +19,49 @@ public class Main {
 
         Assembler assembler = new Assembler();
         Packager packager = new Packager(assembler);
-        WhiteDecorator white = new WhiteDecorator(packager);
-        BlackDecorator black = new BlackDecorator(packager);
-        PhoneBuilder test = new PhoneBuilder(assembler, black, white);
-        test.buildPhone(PhoneName.PhoneUltra, Colour.Black);
-        //test.buildPhone(PhoneName.PhoneUltra, Colour.White);
-        //test.buildPhone(PhoneName.PhoneMini, Colour.White);
-       // test.buildPhone(PhoneName.PhoneMini, Colour.White);
-        //test.getPhone().setColour(Colour.White);
-       black.decorate();
-       //System.out.println(test.getPhone().getColour());
+        Shipper shipper = new Shipper(packager);
+
+        WhiteDecorator white = new WhiteDecorator();
+        BlackDecorator black = new BlackDecorator();
+        PhoneBuilder builder = new PhoneBuilder(assembler, black, white);
+
+        Store store = new Store();
+        Customer customer1 = new Customer(PhoneName.PhonePro);
+        Customer customer2 = new Customer(PhoneName.PhonePro);
+        Customer customer3 = new Customer(PhoneName.PhonePro);
+
+
+        //builder.buildPhone(PhoneName.PhoneUltra, Colour.Black);
+        builder.buildPhone(PhoneName.PhonePro, Colour.Black);
+        //builder.buildPhone(PhoneName.PhoneMini, Colour.Black);
+        //builder.buildPhone(PhoneName.PhoneUltra, Colour.White);
+        builder.buildPhone(PhoneName.PhonePro, Colour.White);
+        //builder.buildPhone(PhoneName.PhoneMini, Colour.White);
 
         //white.printWhiteDecoratorList();
         //black.printBlackDecoratorList();
-        System.out.println(test.getPhone().getResult());
-        //Store store = new Store();
-        //store.addToStock(test.getPhone());
-       // Customer customer = new Customer(PhoneName.PhoneUltra);
-       // System.out.println(customer.isWantedModelInStock());
-       // store.subscribeCustomer(customer);
-       // store.notifyCustomer();
-       // System.out.println(customer.isWantedModelInStock());
-       // store.printStock();
-        //store.sellPhone(customer.getWantedModel(), customer);
+        black.decorate();
+        white.decorate();
+
+
+        //assembler.printList();
+        assembler.moveForward(packager);
+        //packager.printList();
+        packager.moveForward(shipper);
+        //shipper.printList();
+        shipper.moveForward(store);
+
+
         //store.printStock();
+        store.subscribeCustomer(customer1);
+        store.subscribeCustomer(customer2);
+        store.subscribeCustomer(customer3);
+        store.notifyCustomer();
+        System.out.println(customer3.isWantedModelInStock());
+        store.sellPhone(customer1);
+        store.sellPhone(customer2);
+        System.out.println(customer3.isWantedModelInStock());
+        store.sellPhone(customer3);
+        System.out.println(customer1.getPhone());
     }
 }

@@ -6,4 +6,8 @@ public class PhoneUltra extends Phone {
     public PhoneUltra() {
         super(PhoneName.PhoneUltra);
     }
+
+    public void decorate() {
+
+    }
 }

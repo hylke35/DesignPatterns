@@ -6,9 +6,7 @@ import com.designpatterns.Employee.Assembler;
 import com.designpatterns.Enum.Colour;
 import com.designpatterns.Phone.Phone;
 import com.designpatterns.Enum.PhoneName;
-import com.designpatterns.Enum.Status;
 
-import java.util.ArrayList;
 
 public class PhoneBuilder {
     private Phone phone;
@@ -64,7 +62,7 @@ public class PhoneBuilder {
         }
 
         return phone;
-    };
+    }
 
     public Phone getPhone() {
         return phone;
@@ -80,5 +78,45 @@ public class PhoneBuilder {
 
     public void setMiniBuilder(MiniBuilder miniBuilder) {
         this.miniBuilder = miniBuilder;
+    }
+
+    public ProBuilder getProBuilder() {
+        return proBuilder;
+    }
+
+    public void setProBuilder(ProBuilder proBuilder) {
+        this.proBuilder = proBuilder;
+    }
+
+    public UltraBuilder getUltraBuilder() {
+        return ultraBuilder;
+    }
+
+    public void setUltraBuilder(UltraBuilder ultraBuilder) {
+        this.ultraBuilder = ultraBuilder;
+    }
+
+    public Assembler getAssembler() {
+        return assembler;
+    }
+
+    public void setAssembler(Assembler assembler) {
+        this.assembler = assembler;
+    }
+
+    public WhiteDecorator getWhiteDecorator() {
+        return whiteDecorator;
+    }
+
+    public void setWhiteDecorator(WhiteDecorator whiteDecorator) {
+        this.whiteDecorator = whiteDecorator;
+    }
+
+    public BlackDecorator getBlackDecorator() {
+        return blackDecorator;
+    }
+
+    public void setBlackDecorator(BlackDecorator blackDecorator) {
+        this.blackDecorator = blackDecorator;
     }
 }

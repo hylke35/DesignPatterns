@@ -11,7 +11,6 @@ public class Shipper extends Employee{
     private ArrayList<Phone> shipList = new ArrayList<>();
     private ShipState shipState = new ShipState();
     private Packager packager;
-    private Store store;
 
     public Shipper(Packager packager) {
         this.packager = packager;
@@ -30,6 +29,12 @@ public class Shipper extends Employee{
         for(Phone phone : phoneList){
             phone.setStatus(Status.Shipped);
             addToList(phone);
+        }
+    }
+
+    public void printList(){
+        for (Phone phone : shipList){
+            System.out.println(phone.getModel());
         }
     }
 

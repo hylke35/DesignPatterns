@@ -6,4 +6,8 @@ public class PhoneMini extends Phone {
     public PhoneMini() {
         super(PhoneName.PhoneMini);
     }
+
+    public void decorate() {
+
+    }
 }

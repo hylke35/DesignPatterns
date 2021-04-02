@@ -26,12 +26,22 @@ public class Assembler extends Employee {
         }
     }
 
+    public void printList(){
+        if(assembleList.size() > 0) {
+            for (Phone phone : assembleList) {
+                System.out.println(phone.getModel());
+            }
+        }else{
+            System.out.println("This list is empty");
+        }
+    }
+
     public void sendBack(Phone phone){
         assembleList.remove(phone);
     }
 
     public void moveForward(Packager packager){
-        packager.addListToList(packager.getPackageList());
+        packager.addListToList(assembleList);
         assembleList.clear();
     }
 

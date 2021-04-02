@@ -29,6 +29,10 @@ public abstract class Employee {
 
     }
 
+    public void printList(){
+
+    }
+
     public void moveForward(){
 
     }

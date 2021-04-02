@@ -1,7 +1,5 @@
 package com.designpatterns.Decorator;
 
-import com.designpatterns.Employee.Assembler;
-import com.designpatterns.Employee.Packager;
 import com.designpatterns.Enum.Colour;
 import com.designpatterns.Phone.Phone;
 
@@ -9,11 +7,6 @@ import java.util.ArrayList;
 
 public class WhiteDecorator extends PhoneDecorator {
     private ArrayList<Phone> whiteDecoratorList = new ArrayList<>();
-    private Packager packager;
-
-    public WhiteDecorator(Packager packager) {
-        this.packager = packager;
-    }
 
     public void addToWhiteDecoratorList(Phone phone){
         whiteDecoratorList.add(phone);
@@ -29,7 +22,7 @@ public class WhiteDecorator extends PhoneDecorator {
     public void decorate() {
         ArrayList<Phone> decoratedPhoneList = new ArrayList<>();
         for (Phone phone : whiteDecoratorList){
-            setPhoneColourWhite(phone);
+            decoratedPhoneList.add(phone);
             setPhoneColourWhite(phone);
         }
         whiteDecoratorList.removeAll(decoratedPhoneList);

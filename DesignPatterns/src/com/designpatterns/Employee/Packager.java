@@ -31,13 +31,19 @@ public class Packager extends Employee {
         }
     }
 
+    public void printList(){
+        for (Phone phone : packageList){
+            System.out.println(phone.getModel());
+        }
+    }
+
     public void sendBack(Phone phone){
         packageList.remove(phone);
         assembler.addToList(phone);
     }
 
     public void moveForward(Shipper shipper){
-        shipper.addListToList(shipper.getShipList());
+        shipper.addListToList(packageList);
         packageList.clear();
     }
     @Override
