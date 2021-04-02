@@ -49,7 +49,7 @@ public class Shipper extends Employee{
     }
 
     @Override
-    public String Process(Phone phone){
+    public String process(Phone phone){
         if (phone.getStatus() == Status.Assemble) {
             process = "The phone is currently being assembled";
         } else if (phone.getStatus() == Status.Package){
@@ -62,5 +62,15 @@ public class Shipper extends Employee{
             process = "The phone has been sold";
         }
         return process;
+    }
+
+    @Override
+    public Status getState(Phone phone) {
+        return phone.getStatus();
+    }
+
+    @Override
+    public void setState(Phone phone) {
+        phone.setStatus(Status.Assemble);
     }
 }

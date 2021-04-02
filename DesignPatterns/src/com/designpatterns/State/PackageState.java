@@ -18,7 +18,7 @@ public class PackageState implements PhoneState{
     }
 
     @Override
-    public String process() {
+    public String process(Phone phone) {
         return process;
     }
 

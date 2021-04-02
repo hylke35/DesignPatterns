@@ -1,10 +1,11 @@
 package com.designpatterns.Employee;
 
 import com.designpatterns.Phone.Phone;
+import com.designpatterns.State.PhoneState;
 
 import java.util.ArrayList;
 
-public abstract class Employee {
+public abstract class Employee implements PhoneState {
 
     protected Phone phone;
     protected String process;

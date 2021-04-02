@@ -45,9 +45,12 @@ public class Main {
 
 
         //assembler.printList();
+        System.out.println(assembler.process(builder.getPhone()));
         assembler.moveForward(packager);
+        System.out.println(assembler.process(builder.getPhone()));
         //packager.printList();
         packager.moveForward(shipper);
+        System.out.println(assembler.process(builder.getPhone()));
         //shipper.printList();
         shipper.moveForward(store);
 
