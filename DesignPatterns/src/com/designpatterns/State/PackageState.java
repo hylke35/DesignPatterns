@@ -19,6 +19,17 @@ public class PackageState implements PhoneState{
 
     @Override
     public String process(Phone phone) {
+        if (phone.getStatus() == Status.Assemble) {
+            process = "The phone is currently being assembled";
+        } else if (phone.getStatus() == Status.Package){
+            process = "The phone is here";
+        } else if (phone.getStatus() == Status.Ship){
+            process = "The phone is currently being prepared for shipping";
+        } else if (phone.getStatus() == Status.Shipped){
+            process = "The phone is currently has been shipped";
+        } else if (phone.getStatus() == Status.Sold){
+            process = "The phone has been sold";
+        }
         return process;
     }
 

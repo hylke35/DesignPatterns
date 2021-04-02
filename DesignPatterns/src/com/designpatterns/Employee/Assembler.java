@@ -46,29 +46,7 @@ public class Assembler extends Employee {
     }
 
     public String process(Phone phone){
-        if (phone.getStatus() == Status.Assemble) {
-            process = "The phone is here";
-        } else if (phone.getStatus() == Status.Package){
-            process = "The phone is currently being packaged";
-        } else if (phone.getStatus() == Status.Ship){
-            process = "The phone is currently being prepared for shipping";
-        } else if (phone.getStatus() == Status.Shipped){
-            process = "The phone is currently has been shipped";
-        } else if (phone.getStatus() == Status.Sold){
-            process = "The phone has been sold";
-        }
+        process = assembleState.process(phone);
         return process;
     }
-
-    @Override
-    public Status getState(Phone phone) {
-        return phone.getStatus();
-    }
-
-    @Override
-    public void setState(Phone phone) {
-        phone.setStatus(Status.Assemble);
-    }
-
-
 }
