@@ -17,7 +17,7 @@ public abstract class Employee{
         this.phone = phone;
     }
 
-    public void sendBack(){
+    public void sendBack(Phone phone){
 
     }
 
