@@ -1,61 +1,29 @@
 package com.designpatterns.Builder;
 
-import com.designpatterns.Enum.Status;
-import com.designpatterns.Phone.PhoneMini;
+public class MiniBuilder extends PhoneBuilder {
 
-public class MiniBuilder implements Builder {
-    private PhoneMini phoneMini;
-
-    public MiniBuilder() {
-        reset();
-    }
-
-    public PhoneMini getPhoneMini() {
-        return phoneMini;
-    }
-
-    public void setPhoneMini(PhoneMini phoneMini) {
-        this.phoneMini = phoneMini;
+    @Override
+    public void buildFrame() {
+        phone.setFrame("Mini Frame");
     }
 
     @Override
-    public void reset() {
-        this.phoneMini = new PhoneMini();
+    public void buildLogicboard() {
+        phone.setLogicboard("AX10");
     }
 
     @Override
-    public void addFrame() {
-        phoneMini.setFrame("Mini Frame");
+    public void buildCam() {
+        phone.setCam("10MP");
     }
 
     @Override
-    public void addLogicboard() {
-        phoneMini.setLogicboard("AX10");
+    public void buildBattery() {
+        phone.setBattery("3600mAH");
     }
 
     @Override
-    public void addCam() {
-        phoneMini.setCam("10MP");
+    public void buildScreen() {
+        phone.setScreen("5 inch");
     }
-
-    @Override
-    public void addBattery() {
-        phoneMini.setBattery("3600mAH");
-    }
-
-    @Override
-    public void addScreen() {
-        phoneMini.setScreen("5 inch");
-    }
-
-    public void build() {
-        addFrame();
-        addLogicboard();
-        addCam();
-        addBattery();
-        addScreen();
-        phoneMini.setResult();
-        phoneMini.setStatus(Status.Assemble);
-    }
-
 }

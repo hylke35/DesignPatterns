@@ -1,11 +1,12 @@
 package com.designpatterns.Phone;
 
+import com.designpatterns.Builder.PhoneBuilder;
 import com.designpatterns.Decorator.Decorator;
 import com.designpatterns.Enum.Colour;
 import com.designpatterns.Enum.PhoneName;
 import com.designpatterns.Enum.Status;
 
-public abstract class Phone implements Decorator {
+public class Phone implements Decorator {
     private Colour colour;
     protected PhoneName model;
     private String frame;
@@ -16,16 +17,8 @@ public abstract class Phone implements Decorator {
     private String result;
     private Status status;
 
-    public Phone(PhoneName model) {
-        this.model = model;
-    }
-
     public Colour getColour() {
         return colour;
-    }
-
-    public void decorate(Colour colour) {
-        this.colour = colour;
     }
 
     public PhoneName getModel() {
@@ -96,6 +89,15 @@ public abstract class Phone implements Decorator {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    @Override
+    public void decorate() {
+
+    }
+
+    public void decorate(Colour colour) {
+        this.colour = colour;
     }
 
 }

@@ -1,5 +1,6 @@
 package com.designpatterns.Employee;
 
+import com.designpatterns.Builder.PhoneBuilder;
 import com.designpatterns.Enum.Status;
 import com.designpatterns.Phone.Phone;
 import com.designpatterns.State.AssembleState;
@@ -9,6 +10,24 @@ import java.util.ArrayList;
 public class Assembler extends Employee {
     private ArrayList<Phone> assembleList = new ArrayList<>();
     private AssembleState assembleState = new AssembleState();
+    private PhoneBuilder phoneBuilder;
+
+    public void setPhoneBuilder(PhoneBuilder phoneBuilder) {
+        this.phoneBuilder = phoneBuilder;
+    }
+
+    public Phone getPhone() {
+        return phoneBuilder.getPhone();
+    }
+
+    public void assemblePhone() {
+        phoneBuilder.createNewPhone();
+        phoneBuilder.buildBattery();
+        phoneBuilder.buildCam();
+        phoneBuilder.buildFrame();
+        phoneBuilder.buildScreen();
+        phoneBuilder.buildLogicboard();
+    }
 
     public ArrayList<Phone> getAssembleList() {
         return assembleList;

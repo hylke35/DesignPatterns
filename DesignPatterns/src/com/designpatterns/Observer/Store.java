@@ -4,9 +4,6 @@ import com.designpatterns.Employee.Shipper;
 import com.designpatterns.Enum.PhoneName;
 import com.designpatterns.Enum.Status;
 import com.designpatterns.Phone.Phone;
-import com.designpatterns.Phone.PhoneMini;
-import com.designpatterns.Phone.PhonePro;
-import com.designpatterns.Phone.PhoneUltra;
 
 import java.util.*;
 
@@ -32,7 +29,7 @@ public class Store {
         return modelInStock;
     }
 
-    public void notifyCustomer(){
+    /*public void notifyCustomer(){
         for(Customer customer: customers) {
             if (checkModelInStock(customer.getWantedModel())) {
                 for (Phone phone : stock) {
@@ -54,7 +51,7 @@ public class Store {
                 customer.setWantedModelInStock(false);
             }
         }
-    }
+    }*/
 
     public void addToStock(Phone phone){
         stock.add(phone);
@@ -93,7 +90,7 @@ public class Store {
             System.out.print("The customer's wanted model is not in stock!");
         }
 
-        notifyCustomer();
+        //notifyCustomer();
     }
 
     public void printStock(){
