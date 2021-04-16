@@ -1,6 +1,7 @@
 package com.designpatterns.Builder;
 
 import com.designpatterns.Phone.Phone;
+import com.designpatterns.State.AssembleState;
 
 
 public abstract class PhoneBuilder {
@@ -12,6 +13,7 @@ public abstract class PhoneBuilder {
 
     public void createNewPhone() {
         phone = new Phone();
+        phone.setStatus(new AssembleState());
     }
 
     public abstract void buildFrame();

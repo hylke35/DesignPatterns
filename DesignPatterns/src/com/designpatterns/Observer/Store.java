@@ -2,14 +2,17 @@ package com.designpatterns.Observer;
 
 import com.designpatterns.Employee.Shipper;
 import com.designpatterns.Enum.PhoneName;
-import com.designpatterns.Enum.Status;
 import com.designpatterns.Phone.Phone;
+import com.designpatterns.State.ShipState;
+import com.designpatterns.State.SoldState;
+import com.designpatterns.State.StoreState;
 
 import java.util.*;
 
 public class Store {
     private ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<Phone> stock = new ArrayList<>();
+    private StoreState storeState = new StoreState();
 
     public void subscribeCustomer(Customer customer){
         customers.add(customer);
@@ -29,19 +32,19 @@ public class Store {
         return modelInStock;
     }
 
-    /*public void notifyCustomer(){
+    public void notifyCustomer(){
         for(Customer customer: customers) {
             if (checkModelInStock(customer.getWantedModel())) {
                 for (Phone phone : stock) {
-                    if (phone instanceof PhoneMini) {
+                    if (phone.getFrame() == "Mini Frame") {
                         if (customer.wantedModel == PhoneName.PhoneMini) {
                             customer.setWantedModelInStock(true);
                         }
-                    } else if (phone instanceof PhonePro) {
+                    } else if (phone.getFrame() == "Pro Frame") {
                         if (customer.wantedModel == PhoneName.PhonePro) {
                             customer.setWantedModelInStock(true);
                         }
-                    } else if (phone instanceof PhoneUltra) {
+                    } else if (phone.getFrame() == "Ultra Frame") {
                         if (customer.wantedModel == PhoneName.PhoneUltra) {
                             customer.setWantedModelInStock(true);
                         }
@@ -51,11 +54,11 @@ public class Store {
                 customer.setWantedModelInStock(false);
             }
         }
-    }*/
+    }
 
     public void addToStock(Phone phone){
         stock.add(phone);
-        phone.setStatus(Status.Shipped);
+        storeState.setStoreState(phone);
     }
 
     public void removeFromStock(Phone phone){
@@ -64,8 +67,8 @@ public class Store {
 
     public void removeFromStockWithIndex(int index){stock.remove(index);}
 
-    public void addAllToStock(Shipper shipper){
-        for(Phone phone : shipper.getShipList()){
+    public void addAllToStock(ArrayList<Phone> phoneList){
+        for(Phone phone : phoneList) {
             addToStock(phone);
         }
     }
@@ -79,7 +82,8 @@ public class Store {
                     phoneInStock = true;
                     unsubscribeCustomer(customer);
                     customer.setPhone(phone);
-                    phone.setStatus(Status.Sold);
+                    phone.setStatus(new SoldState());
+                    storeState.next(phone);
                     index = stock.indexOf(phone);
                 }
             }
@@ -90,12 +94,18 @@ public class Store {
             System.out.print("The customer's wanted model is not in stock!");
         }
 
-        //notifyCustomer();
+        notifyCustomer();
     }
 
     public void printStock(){
         for (Phone phone : stock){
             System.out.println(phone.getModel());
         }
+    }
+
+    public void sendBackToShipper(Shipper shipper, Phone phone){
+        shipper.addToList(phone);
+        phone.setStatus(new ShipState());
+        stock.remove(phone);
     }
 }

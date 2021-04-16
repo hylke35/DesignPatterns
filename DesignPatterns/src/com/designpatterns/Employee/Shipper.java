@@ -1,56 +1,48 @@
 package com.designpatterns.Employee;
 
-import com.designpatterns.Enum.Status;
+import com.designpatterns.Builder.PhoneBuilder;
 import com.designpatterns.Observer.Store;
 import com.designpatterns.Phone.Phone;
+import com.designpatterns.State.AssembleState;
 import com.designpatterns.State.ShipState;
+import com.designpatterns.State.StoreState;
 
 import java.util.ArrayList;
 
-public class Shipper extends Employee{
-    private ArrayList<Phone> shipList = new ArrayList<>();
-    private ShipState shipState = new ShipState();
-    private Packager packager;
+public class Shipper {
+        private ArrayList<Phone> shipList = new ArrayList<>();
+        private ShipState shipState = new ShipState();
 
-    public Shipper(Packager packager) {
-        this.packager = packager;
-    }
-
-    public ArrayList<Phone> getShipList() {
-        return shipList;
-    }
-
-    public void addToList(Phone phone){
-        shipList.add(phone);
-        shipState.setState(phone);
-    }
-
-    public void addListToList(ArrayList<Phone> phoneList){
-        for(Phone phone : phoneList){
-            phone.setStatus(Status.Shipped);
-            addToList(phone);
+        public ArrayList<Phone> getShipList() {
+            return shipList;
         }
-    }
 
-    public void printList(){
-        for (Phone phone : shipList){
-            System.out.println(phone.getModel());
+        public void addToList(Phone phone){
+            shipList.add(phone);
+            phone.setStatus(this.shipState);
         }
-    }
 
-    public void moveForward(Store store){
-        store.addAllToStock(this);
-        shipList.clear();
-    }
+        public void printList(){
+            if(shipList.size() > 0) {
+                for (Phone phone : shipList) {
+                    System.out.println(phone.getModel());
+                }
+            }else{
+                System.out.println("This list is empty");
+            }
+        }
 
-    public void sendBack(Phone phone){
-        shipList.remove(phone);
-        packager.addToList(phone);
-    }
+        public void sendToStore(Store store){
+            for (Phone phone : shipList){
+                phone.setStatus(new StoreState());
+            }
 
-    @Override
-    public String process(Phone phone){
-        process = shipState.process(phone);
-        return process;
-    }
+            store.addAllToStock(shipList);
+        }
+
+        public void sendBackToAssembler(Assembler assembler, Phone phone){
+            shipState.prev(phone);
+            assembler.addToList(phone);
+            shipList.remove(phone);
+        }
 }

@@ -1,10 +1,13 @@
 package com.designpatterns.Builder;
 
+import com.designpatterns.Enum.PhoneName;
+
 public class MiniBuilder extends PhoneBuilder {
 
     @Override
     public void buildFrame() {
         phone.setFrame("Mini Frame");
+        phone.setModel(PhoneName.PhoneMini);
     }
 
     @Override

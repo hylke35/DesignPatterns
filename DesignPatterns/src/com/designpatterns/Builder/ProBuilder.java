@@ -1,12 +1,13 @@
 package com.designpatterns.Builder;
 
-import com.designpatterns.Enum.Status;
+import com.designpatterns.Enum.PhoneName;
 
 public class ProBuilder extends PhoneBuilder {
 
     @Override
     public void buildFrame() {
         phone.setFrame("Pro Frame");
+        phone.setModel(PhoneName.PhonePro);
     }
 
     @Override

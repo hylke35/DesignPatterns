@@ -1,15 +1,16 @@
 package com.designpatterns.Employee;
 
 import com.designpatterns.Builder.PhoneBuilder;
-import com.designpatterns.Enum.Status;
 import com.designpatterns.Phone.Phone;
 import com.designpatterns.State.AssembleState;
+import com.designpatterns.State.ShipState;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Assembler extends Employee {
-    private ArrayList<Phone> assembleList = new ArrayList<>();
     private AssembleState assembleState = new AssembleState();
+    private ArrayList<Phone> defectiveList = new ArrayList<>();
     private PhoneBuilder phoneBuilder;
 
     public void setPhoneBuilder(PhoneBuilder phoneBuilder) {
@@ -29,43 +30,22 @@ public class Assembler extends Employee {
         phoneBuilder.buildLogicboard();
     }
 
-    public ArrayList<Phone> getAssembleList() {
-        return assembleList;
+    public void sendToShipper(Shipper shipper){
+        Phone phone = this.getPhone();
+        shipper.addToList(phone);
+    }
+
+    public void destroyPhone(Phone phone){
+        assembleState.prev(phone);
+    }
+
+    public void destroyDefectiveList(){
+        for (Phone phone : defectiveList){
+            destroyPhone(phone);
+        }
     }
 
     public void addToList(Phone phone){
-        assembleList.add(phone);
-        assembleState.setState(phone);
-    }
-
-    public void addListToList(ArrayList<Phone> phoneList){
-        for(Phone phone : phoneList){
-            phone.setStatus(Status.Package);
-            addToList(phone);
-        }
-    }
-
-    public void printList(){
-        if(assembleList.size() > 0) {
-            for (Phone phone : assembleList) {
-                System.out.println(phone.getModel());
-            }
-        }else{
-            System.out.println("This list is empty");
-        }
-    }
-
-    public void sendBack(Phone phone){
-        assembleList.remove(phone);
-    }
-
-    public void moveForward(Packager packager){
-        packager.addListToList(assembleList);
-        assembleList.clear();
-    }
-
-    public String process(Phone phone){
-        process = assembleState.process(phone);
-        return process;
+        defectiveList.add(phone);
     }
 }

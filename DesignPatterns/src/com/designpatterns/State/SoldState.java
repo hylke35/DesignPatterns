@@ -2,21 +2,19 @@ package com.designpatterns.State;
 
 import com.designpatterns.Phone.Phone;
 
-public class AssembleState implements PhoneState{
-
+public class SoldState implements PhoneState{
     @Override
     public void next(Phone phone) {
-        phone.setStatus(new ShipState());
+        printStatus();
     }
 
     @Override
     public void prev(Phone phone) {
-        phone = null;
-        System.out.println("The phone was destroyed.");
+        phone.setStatus(new StoreState());
     }
 
     @Override
     public void printStatus() {
-        System.out.println("Phone is in the assembly line.");
+        System.out.println("The Phone has been sold.");
     }
 }

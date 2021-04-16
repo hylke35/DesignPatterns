@@ -1,10 +1,13 @@
 package com.designpatterns.Builder;
 
 
+import com.designpatterns.Enum.PhoneName;
+
 public class UltraBuilder extends PhoneBuilder {
     @Override
     public void buildFrame() {
         phone.setFrame("Ultra Frame");
+        phone.setModel(PhoneName.PhoneUltra);
     }
 
     @Override

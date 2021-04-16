@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public abstract class Employee{
 
     protected Phone phone;
-    protected String process;
 
     public Phone getPhone() {
         return phone;
@@ -17,28 +16,8 @@ public abstract class Employee{
         this.phone = phone;
     }
 
-    public void sendBack(Phone phone){
+    public void addToList(){
 
-    }
-
-    public void addToList(Phone phone){
-
-    }
-
-    public void addListToList(ArrayList<Phone> phoneList){
-
-    }
-
-    public void printList(){
-
-    }
-
-    public void moveForward(){
-
-    }
-
-    public String process(Phone phone){
-        return process;
     }
 }
 

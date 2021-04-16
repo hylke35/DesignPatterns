@@ -1,13 +1,11 @@
 package com.designpatterns.Phone;
 
-import com.designpatterns.Builder.PhoneBuilder;
 import com.designpatterns.Decorator.Decorator;
-import com.designpatterns.Enum.Colour;
 import com.designpatterns.Enum.PhoneName;
-import com.designpatterns.Enum.Status;
+import com.designpatterns.State.AssembleState;
+import com.designpatterns.State.PhoneState;
 
 public class Phone implements Decorator {
-    private Colour colour;
     protected PhoneName model;
     private String frame;
     private String logicboard;
@@ -15,11 +13,7 @@ public class Phone implements Decorator {
     private String cam;
     private String screen;
     private String result;
-    private Status status;
-
-    public Colour getColour() {
-        return colour;
-    }
+    private PhoneState phoneState = new AssembleState();
 
     public PhoneName getModel() {
         return model;
@@ -79,25 +73,30 @@ public class Phone implements Decorator {
                  "Logicboard: " + getLogicboard() +"\n"+
                  "Battery: " + getBattery() +"\n"+
                  "Camera: " + getCam() +"\n"+
-                 "Screen: " + getScreen() +"\n"+
-                 "Colour: " + getColour();
+                 "Screen: " + getScreen() +"\n";
     }
 
-    public Status getStatus() {
-        return status;
+    public PhoneState getStatus() {
+        return phoneState;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatus(PhoneState phoneState) {
+        this.phoneState = phoneState;
     }
 
     @Override
-    public void decorate() {
+    public String decorate() {
+        String phoneString = "Phone";
 
-    }
+        if(this.getFrame() == "Mini Frame"){
+            phoneString = "Mini Phone";
+        } else if(this.getFrame() == "Pro Frame"){
+            phoneString = "Pro Phone";
+        } else if(this.getFrame() == "Ultra Frame"){
+            phoneString = "Ultra Phone";
+        }
 
-    public void decorate(Colour colour) {
-        this.colour = colour;
+        return phoneString;
     }
 
 }
